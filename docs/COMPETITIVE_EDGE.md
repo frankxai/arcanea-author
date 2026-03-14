@@ -244,33 +244,70 @@ it's an orchestration architecture where mythology IS the routing system.
 
 ---
 
-## The Bridge: opencode-arcanea
+## The Bridge: opencode-arcanea — ALREADY BUILT
 
-`frankxai/opencode-arcanea` becomes the **multi-model author orchestrator**:
+`frankxai/opencode-arcanea` already has a **production-grade Greek god agent system**:
+
+### Existing Agents (Ready to Bridge)
+
+| Agent | Greek God | Role | Model |
+|-------|-----------|------|-------|
+| **Sisyphus** | Titan of persistence | Primary orchestrator, delegates, ships | Opus 4.6 |
+| **Prometheus** | Titan of foresight | Strategic planner, NEVER implements | Opus 4.6 |
+| **Hephaestus** | God of the forge | Deep autonomous worker, Guardian-integrated | Opus 4.6 |
+| **Metis** | Goddess of wisdom | Pre-planning consultant, intent analysis | Configurable |
+| **Momus** | God of criticism | Plan reviewer, catches omissions | Configurable |
+| **Oracle** | Delphi | Strategic technical advisor, architecture | Opus 4.6 |
+| **Atlas** | Titan who holds sky | Master orchestrator, spawns sub-agents | Opus 4.6 |
+| **Starlight** | Lumina-Nero engine | Elemental orchestration (Arcanea-native) | Configurable |
+
+### What Needs to Be Added for Author Mode
+
+The opencode-arcanea agents are **coding-focused**. To bridge to author work:
+
+1. **Add author-mode agents** that reuse the same orchestration patterns:
+   - `calliope.ts` — Muse of epic poetry, maps to Story Architect
+   - `clio.ts` — Muse of history, maps to Research Librarian
+   - `mnemosyne.ts` — Titan of memory, maps to memsearch-sqlite
+   - `orpheus.ts` — Master of music/poetry, maps to Voice Alchemist
+   - `thalia.ts` — Muse of comedy, maps to Character Psychologist
+
+2. **Wire author skills** into the existing skill system:
+   - `arcanea-author.md` → Hephaestus skill (deep work)
+   - `create-story.md` → Prometheus skill (planning)
+   - `revision-ritual` → Momus skill (review)
+
+3. **Add model routing for author tasks**:
+   - Creative generation → Gemini 3.1 Pro (multimodal, creative)
+   - Structure/planning → Opus 4.6 (deep reasoning)
+   - Quick edits → Haiku 4.5 (fast, cheap)
+   - Dialogue → MiniMax 2.5 (voice quality)
+   - Research → GLM-5 / DeepSeek-V3 (knowledge)
+
+4. **Wire memsearch-sqlite** as a tool available to all agents
+
+### Architecture
 
 ```
-opencode-arcanea/
-├── agents/
-│   ├── architect.md    # Hephaestus/Foundation → Opus
-│   ├── muse.md         # Calliope/Voice → Gemini
-│   ├── editor.md       # Aristotle/Crown → Sonnet
-│   ├── scholar.md      # Athena/Sight → GLM
-│   ├── voice.md        # Orpheus/Flow → MiniMax
-│   ├── builder.md      # Sisyphus → DeepSeek
-│   ├── seer.md         # Apollo/Starweave → Trinity
-│   └── judge.md        # Thoth → Haiku
-├── routing/
-│   ├── model-router.ts # Complexity-based model selection
-│   ├── fallback.ts     # Model cascade on failure
-│   └── cost-optimizer.ts
-├── memory/
-│   ├── memsearch-sqlite.py  # SQLite vector search
-│   └── agentdb-bridge.ts    # AgentDB integration
-├── skills/
-│   └── [all arcanea-author skills]
-└── CLAUDE.md               # Multi-model orchestration config
+opencode-arcanea (multi-model runtime)
+├── src/agents/
+│   ├── sisyphus.ts        # EXISTING — orchestrator
+│   ├── prometheus-prompt.ts # EXISTING — planner
+│   ├── hephaestus.ts      # EXISTING — deep worker
+│   ├── metis.ts           # EXISTING — pre-planner
+│   ├── momus.ts           # EXISTING — reviewer
+│   ├── oracle.ts          # EXISTING — advisor
+│   ├── atlas.ts           # EXISTING — spawner
+│   ├── starlight.ts       # EXISTING — Arcanea engine
+│   ├── calliope.ts        # NEW — story generation
+│   ├── mnemosyne.ts       # NEW — memory search
+│   └── orpheus.ts         # NEW — voice/dialogue
+├── src/guardians/         # EXISTING — 10 Gate guardians
+├── skills/author/         # NEW — author mode skills
+└── memory/
+    └── memsearch-sqlite.py # NEW — SQLite vector search
 ```
 
-This repo is NOT a copy of arcanea-author. It's the **multi-model runtime** that
-arcanea-author's skills run on. The skills are the same. The execution engine
-supports 8+ frontier models with intelligent routing and fallback.
+The pattern is clear: opencode-arcanea already has the orchestration engine.
+We add author-mode agents that follow the same discipline (plan → review → execute → verify)
+and wire them to the same multi-model routing system.
