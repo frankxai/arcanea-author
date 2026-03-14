@@ -1,0 +1,11 @@
+[embedding]
+provider = "google"  # or "local" for ONNX, "openai" for OpenAI
+
+[search]
+top_k = 10
+hybrid = true
+
+[index]
+paths = ["./chapters/", "./worldbuilding/", "./characters/"]
+watch = true
+debounce_ms = 1500
